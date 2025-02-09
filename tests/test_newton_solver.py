@@ -15,7 +15,7 @@ def test_newtonsolver():
     known = 2
     assert np.all( np.isclose( known , found ) )
 
-    n = 1  # Number of variables
+    n = 1 
     x = sympy.symbols(f'x:{n}')
 
     F = sympy.Matrix([ x[0]**2 - 2 * x[0] + 1 ])
@@ -26,7 +26,7 @@ def test_newtonsolver():
     known = 1
     assert np.all( np.isclose( known , found ) )
 
-    n = 2  # Number of variables
+    n = 2  
     x = sympy.symbols(f'x:{n}')  
     
     F = sympy.Matrix([x[0]**3- 4 *x[0], x[1]**2- 4 *x[1]])  
@@ -42,7 +42,7 @@ def test_newtonsolver():
 
     F = sympy.Matrix([x[0]**2 + 1])
     J = F.jacobian(x)
-    x0 = np.array([9])  # Starting guess
+    x0 = np.array([9]) 
 
     with pytest.raises(ns.MaxIterationReached):
         ns.solver( F, J, x, x0, max_iter=5)
