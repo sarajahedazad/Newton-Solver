@@ -44,7 +44,7 @@ def test_newtonsolver():
     J = F.jacobian(x)
     x0 = np.array([9])  # Starting guess
 
-    with pytest.raises(MaxIterationReached):
+    with pytest.raises(ns.MaxIterationReached):
         ns.solver( F, J, x, x0, max_iter=5)
 
 
