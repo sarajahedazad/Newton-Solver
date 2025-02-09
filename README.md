@@ -4,6 +4,7 @@
 # Newton Raphson Method
 
 ### Conda environment, install, and testing <a name="install"></a>
+This section is entirely come and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)
 
 To install this package, please begin by setting up a conda environment (mamba also works):
 ```bash
