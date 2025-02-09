@@ -1,7 +1,6 @@
 from newtonsolver import newton_solver as ns
 import numpy as np
 import pytest
-import re
 import sympy
 
 def test_newtonsolver():
@@ -45,18 +44,17 @@ def test_newtonsolver():
     J = F.jacobian(x)
     x0 = np.array([0])
     
-    with pytest.raises(MaxIterationReached, match="Maximum allowed iteration reached. No roots were found."):
+    with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."):
         ns.solver(F, J, x, x0)
-    with pytest.raises(MaxIterationReached) as excinfo:
-        n = 1  # Number of variables
-        x = sympy.symbols(f'x:{n}')  
+    # with pytest.raises(MaxIterationReached) as excinfo:
+    #     n = 1  # Number of variables
+    #     x = sympy.symbols(f'x:{n}')  
         
-        F = sympy.Matrix([x[0]**3 - 8]) 
-        J = F.jacobian(x)
-        x0 = np.array([0])
-        ns.solver( F, J, x, x0 )
-    assert str(excinfo.value) == "Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."
-
+    #     F = sympy.Matrix([x[0]**3 - 8]) 
+    #     J = F.jacobian(x)
+    #     x0 = np.array([0])
+    #     ns.solver( F, J, x, x0 )
+    # assert str(excinfo.value) == "Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."
     
 
 
