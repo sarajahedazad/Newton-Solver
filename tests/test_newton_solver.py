@@ -13,7 +13,7 @@ def test_newtonsolver():
 
     found = ns.solver( F, J, x, x0, verbose = True)
     known = 2
-    assert np.isclose( known , found )
+    assert np.all( np.isclose( known , found ) )
 
     n = 2  # Number of variables
     x = sympy.symbols(f'x:{n}')  # Creates [x0, x1] dynamically
@@ -24,5 +24,5 @@ def test_newtonsolver():
     
     found = ns.solver( F, J, x, x0, verbose = True)
     known = np.array([2, 4])
-    assert np.isclose( known , found )
+    assert np.all( np.isclose( known , found ) )
 
