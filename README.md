@@ -1,1 +1,1 @@
-# NewtonRaphsonMethod
+# Newton Raphson Method
