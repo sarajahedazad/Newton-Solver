@@ -1,6 +1,7 @@
 import newton_solver as ns 
 import numpy as np
 import pytest
+import sympy
 
 def test_newtonsolver():
     n = 1  # Number of variables
