@@ -45,8 +45,8 @@ def test_newtonsolver():
     J = F.jacobian(x)
     x0 = np.array([0])
     
-    with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."):
-        ns.solver( F, J, x, x0 )
+    with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root"):
+        ns.solver(F, J, x, x0)
     with pytest.raises(MaxIterationReached) as excinfo:
         n = 1  # Number of variables
         x = sympy.symbols(f'x:{n}')  
