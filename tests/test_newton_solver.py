@@ -1,6 +1,7 @@
 from newtonsolver import newton_solver as ns
 import numpy as np
 import pytest
+import re
 import sympy
 
 def test_newtonsolver():
@@ -15,14 +16,48 @@ def test_newtonsolver():
     known = 2
     assert np.all( np.isclose( known , found ) )
 
+    n = 1  # Number of variables
+    x = sympy.symbols(f'x:{n}')
+
+    F = sympy.Matrix([ x[0] - 2 * x[0] + 1 ])
+    J = F.jacobian(x)
+    x0 = np.array([ 1 ])
+
+    found = ns.solver( F, J, x, x0, verbose = True)
+    known = 2
+    assert np.all( np.isclose( known , found ) )
+
     n = 2  # Number of variables
-    x = sympy.symbols(f'x:{n}')  # Creates [x0, x1] dynamically
+    x = sympy.symbols(f'x:{n}')  
     
-    F = sympy.Matrix([x[0]**3- 4 *x[0], x[1]**2- 4 *x[1]])  # Example function
+    F = sympy.Matrix([x[0]**3- 4 *x[0], x[1]**2- 4 *x[1]])  
     J = F.jacobian(x)
     x0 = np.array([1.5, 2.2])
     
     found = ns.solver( F, J, x, x0, verbose = True)
     known = np.array([2, 4])
     assert np.all( np.isclose( known , found ) )
+
+    n = 1  # Number of variables
+    x = sympy.symbols(f'x:{n}')  
+    
+    F = sympy.Matrix([x[0]**2- 1) 
+    J = F.jacobian(x)
+    x0 = np.array([0])
+    
+    with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."):
+        ns.solver( F, J, x, x0 )
+    with pytest.raises(ValueError) as excinfo:
+        n = 1  # Number of variables
+        x = sympy.symbols(f'x:{n}')  
+        
+        F = sympy.Matrix([x[0]**3 - 8) 
+        J = F.jacobian(x)
+        x0 = np.array([0])
+        ns.solver( F, J, x, x0 )
+    assert str(excinfo.value) == "Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."
+
+    
+
+
 
