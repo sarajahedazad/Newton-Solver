@@ -1,4 +1,4 @@
-import newton_solver as ns 
+from newtonsolver import newton_solver as ns
 import numpy as np
 import pytest
 import sympy
