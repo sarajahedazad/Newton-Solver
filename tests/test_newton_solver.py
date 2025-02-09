@@ -40,18 +40,11 @@ def test_newtonsolver():
     n = 1  # Number of variables
     x = sympy.symbols(f'x:{n}')  
     
-    F = sympy.Matrix([x[0]**2- 1]) 
+    F = sympy.Matrix([x[0]**2 + 1]) 
     J = F.jacobian(x)
-    x0 = np.array([0])
-
-    n = 1  # Number of variables
-    x = sympy.symbols(f'x:{n}')  
-    
-    F = sympy.Matrix([x[0]**2 - 1]) 
-    J = F.jacobian(x)
-    x0 = np.array([1000])
+    x0 = np.array([9])
     with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."):
-        ns.solver( F, J, x, x0, max_iter= 10 )
+        ns.solver( F, J, x, x0, verbose=True )
     
     # with pytest.raises(MaxIterationReached, match="Maximum iterations reached without finding a root. Try increasing the tolerance, allowing more iterations, or adjusting the initial guess."):
     #     ns.solver(F, J, x, x0)
