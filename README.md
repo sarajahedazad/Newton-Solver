@@ -53,7 +53,7 @@ example: `x = np.array([ 1.5, 2.2 ])`
 *Outputs:*  
 **root**: the solution for the expression F, based on the initial guess of x0.
 
-`Error`: if no root can be found after maximum number of iterations , an error will be raised.
+`Error`: if no root is found after maximum number of iterations, an error will be raised.
 
 ---
 
