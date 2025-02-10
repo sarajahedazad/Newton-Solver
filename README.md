@@ -36,7 +36,7 @@ By iterating this process, we often converge quickly (quadratically, near the ro
 The file `newton_solver.py` (located in the `src/newtonsolver` folder) contains several functions that implement Newton's method. The primary function that users call to find the root of an expression is `solve`.
 
 **Function `solve`**  
-*Inputs*  
+*Inputs:*  
 **F**: expression of a function defined in sympy. Should be a `sympy.Matrix`.  
 example: `F = sympy.Matrix([ x[0]**3- 4 *x[0], x[0]**2- 1 ])`   
 **J**: Jacobian of F. Should be a `sympy.Matrix`.  
