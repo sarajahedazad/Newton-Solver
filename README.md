@@ -12,19 +12,19 @@ This repository provides an implementation of [Newton's method](https://en.wikip
 
 ## What is Newton's Method?
 
-Newton's method is designed to find solutions to the equation \( F(x) = 0 \). It uses the first-order Taylor expansion to generate iterative approximations of the root. For a single variable, each iteration is:
+Newton's method is designed to find solutions to the equation $ F(x) = 0 $. It uses the first-order Taylor expansion to generate iterative approximations of the root. For a single variable, each iteration is:
 
-\[
-x_{k+1} = x_k - \frac{F(x_k)}{F'(x_k)}
-\]
 
-For multiple variables, the concept extends using the Jacobian matrix \( J(x) \):
+$x_{k+1} = x_k - \frac{F(x_k)}{F'(x_k)}$
 
-\[
+
+For multiple variables, the concept extends using the Jacobian matrix $ J(x) $:
+
+$
 \mathbf{x}_{k+1} = \mathbf{x}_k - J(\mathbf{x}_k)^{-1} F(\mathbf{x}_k)
-\]
+$
 
-By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on \( F \).
+By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on $ F $.
 
 
 ---
