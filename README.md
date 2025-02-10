@@ -18,7 +18,7 @@ Newton's method is designed to find solutions to the equation $F(x) = 0$. It use
 $x_{k+1} = x_k - \frac{F(x_k)}{F'(x_k)}$
 
 
-For multiple variables, the concept extends using the Jacobian matrix $ J(x) $:
+For multiple variables, the concept extends using the Jacobian matrix $J(x)$:
 
 $x_{k+1} = x_k - J(x_k)^{-1} F(x_k)$
 
