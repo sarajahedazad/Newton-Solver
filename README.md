@@ -37,14 +37,14 @@ The file `newton_solver.py` (located in the `src/newtonsolver` folder) contains 
 
 **Function `solve`**  
 *Inputs:*  
-**F**: expression of a function defined in sympy. Should be a `sympy.Matrix`.  
-example: `F = sympy.Matrix([ x[0]**3- 4 *x[0], x[0]**2- 1 ])`   
-**J**: Jacobian of F. Should be a `sympy.Matrix`.  
-example: `J = F.jacobian(x)`   
-**x**: A tuple containing symbols used to define the expression F in sympy. Should be as `tuple[sympy.Symbol, ...]`.  
-example: `x = sympy.symbols(f'x:{n}')` in which n is the number of variables (according to F, n is 2 here).   
-**x0**: a numpy arrasy as the initial guess for x.  
-example: `x = np.array([ 1.5, 2.2 ])`
+**F**: expression of a function defined in sympy. Should be a `sympy.Matrix`.    
+example: `F = sympy.Matrix([ x[0]**3- 4 *x[0], x[0]**2- 1 ])`     
+**J**: Jacobian of F. Should be a `sympy.Matrix`.    
+example: `J = F.jacobian(x)`     
+**x**: A tuple containing symbols used to define the expression F in sympy. Should be as `tuple[sympy.Symbol, ...]`.     
+example: `x = sympy.symbols(f'x:{n}')` in which n is the number of variables (according to F, n is 2 here).     
+**x0**: a numpy arrasy as the initial guess for x.     
+example: `x = np.array([ 1.5, 2.2 ])`   
 **max_iter**: maximum number of iteration allowed to run the Newton's algorithm, default = 50  
 **abs_tol**: absolute tolerance, default = $10^{-9}$  
 **rel_tol**: relative tolerance, default = $10^{-9}$    
