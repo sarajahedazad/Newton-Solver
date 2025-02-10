@@ -24,11 +24,42 @@ $x_{k+1} = x_k - J(x_k)^{-1} F(x_k)$
 
 By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on $ F $.
 
+---
+### Requirements
+
+`numpy library`  
+`sympy library`     
+
+---
+
+### Codes
+The file `newton_solver.py` (located in the `src/newtonsolver` folder) contains several functions that implement Newton's method. The primary function that users call to find the root of an expression is `solve`.
+
+**Function `solve`**  
+*Inputs*  
+**F**: expression of a function defined in sympy. Should be a `sympy.Matrix`.  
+example: `F = sympy.Matrix([ x[0]**3- 4 *x[0], x[0]**2- 1 ])`   
+**J**: Jacobian of F. Should be a `sympy.Matrix`.  
+example: `J = F.jacobian(x)`
+**x**: A tuple containing symbols used to define the expression F in sympy. Should be as `tuple[sympy.Symbol, ...]`.  
+example: `x = sympy.symbols(f'x:{n}')` in which n is the number of variables (according to F, n is 2 here).
+**x0**: a numpy arrasy as the initial guess for x.  
+example: `x = np.array([ 1.5, 2.2 ])`
+**max_iter**: maximum number of iteration allowed to run the Newton's algorithm, default = 50  
+**abs_tol**: absolute tolerance, default = $10^{-9}$  
+**rel_tol**: relative tolerance, default = $10^{-9}$    
+**verbose**: whether to print out the debug information at each iteration or not, default = False
+
+*Outputs:*  
+**solve**  
+root: the solution for the expression F, based on the initial guess of x0.
+
+Error: if no root can be found after maximum number of iterations , an error will be raised.
 
 ---
 
 ### Conda environment, install, and testing <a name="install"></a>
-This section is entirely come and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)
+_This section is entirely copy and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)_
 
 To install this package, please begin by setting up a conda environment (mamba also works):
 ```bash
@@ -70,6 +101,26 @@ cd tutorials/
 ```bash
 jupyter notebook tutorial_newton_solver.ipynb
 ```
-### An alternative way to try the implemented Newton's method
-Download the `newton_solver.py` file from the folder `src/newtonsolver`([here](https://github.com/sarajahedazad/Newton-Solver/tree/main/src/newtonsolver)). Place it in the same folder as your working directory. You can find the path to that folder by typing `pwd` in your terminal. Create a `.py` file that 
+### An alternative way to test the implemented Newton's method without installing the package
+- Step 1: Download the `newton_solver.py` file from the folder `src/newtonsolver`([here](https://github.com/sarajahedazad/Newton-Solver/tree/main/src/newtonsolver). Place it in the same folder as your working directory.
+- Step 2: Create a python file in that folder and write your example in that file. You can import the `newton_solver` with the following line:
+`import newton_solver as ns`
+- Step 3: Run your code an enjoy!
+Here is an example that demonstrates how you can test `newton_solver.py` file (it should be in the same folder as the python file that you intend to run):
+`
+import numpy as np
+import sympy
+import newton_solver as ns
+
+x = sympy.symbols(f'x:{n}')  # Creates [x0, x1] dynamically
+
+F = sympy.Matrix([x[0]**3- 4 *x[0], x[1]**2- 4 *x[1]])  # Example function
+J = F.jacobian(x)
+x0 = np.array([1.5, 2.2])
+root = ns.solver( F, J, x, x0, verbose = True)
+
+print( f'The root is {root}' )
+`
+---
+### Inputs and outputs of solve
 ---
