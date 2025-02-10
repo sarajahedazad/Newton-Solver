@@ -21,7 +21,7 @@ $x_{k+1} = x_k - \frac{F(x_k)}{F'(x_k)}$
 For multiple variables, the concept extends using the Jacobian matrix $ J(x) $:
 
 $
-\mathbf{x}_{k+1} = \mathbf{x}_k - J(\mathbf{x}_k)^{-1} F(\mathbf{x}_k)
+x_{k+1} = x_k - J(x_k)^{-1} F(x_k)
 $
 
 By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on $ F $.
