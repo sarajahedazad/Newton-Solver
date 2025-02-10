@@ -51,10 +51,9 @@ example: `x = np.array([ 1.5, 2.2 ])`
 **verbose**: whether to print out the debug information at each iteration or not, default = False
 
 *Outputs:*  
-**solve**  
-root: the solution for the expression F, based on the initial guess of x0.
+**root**: the solution for the expression F, based on the initial guess of x0.
 
-Error: if no root can be found after maximum number of iterations , an error will be raised.
+`Error`: if no root can be found after maximum number of iterations , an error will be raised.
 
 ---
 
