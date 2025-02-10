@@ -22,7 +22,9 @@ For multiple variables, the concept extends using the Jacobian matrix $J(x)$:
 
 $x_{k+1} = x_k - J(x_k)^{-1} F(x_k)$
 
-By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on $ F $.
+By iterating this process, we often converge quickly (quadratically, near the root) to a solution, given a good initial guess and certain regularity conditions on $F$.
+
+Stopping criteria: Maximum number of iterations is reached, or the found solution is smaller than a predefined absolute tolerance, or the absolute differnece between $x_{k+1}$ and $x_{k}$ is smaller than a predefined relative tolerance.
 
 ---
 ### Requirements
