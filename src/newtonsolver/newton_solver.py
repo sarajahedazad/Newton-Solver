@@ -44,7 +44,12 @@ def iterate(F, J, x, x0, verbose, iteration = None ):
             print( f'Iteration { iteration + 1 }; absolute error is { abs_error } ; relative error is { rel_error }' )
     return x1, abs_error, rel_error
 
-def solver( F, J, x, x0, max_iter = 50, rel_tol = 1e-9, abs_tol = 1e-9, verbose = False):
+def solver( F: sympy.Matrix,
+            J: sympy.Matrix,
+            x: tuple[sympy.Symbol, ...],
+            x0: np.ndarray, max_iter: int = 50,
+            rel_tol: float = 1e-9, abs_tol: float = 1e-9,
+            verbose: bool = False) -> np.ndarray:
     if is_initial_guess_root( F, x, x0, abs_tol ):
         return x0
     for iteration in range( max_iter ):
