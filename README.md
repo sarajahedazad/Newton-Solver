@@ -65,7 +65,7 @@ example: `x = np.array([ 1.5, 2.2 ])`
 ---
 
 ### Conda environment, install, and testing <a name="install"></a>
-_This section is entirely copied and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)_
+_This section is copied and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)_
 
 To install this package, please begin by setting up a conda environment (mamba also works):
 ```bash
@@ -119,6 +119,7 @@ import numpy as np
 import sympy
 import newton_solver as ns
 
+n = 2
 x = sympy.symbols(f'x:{n}')  # Creates [x0, x1] dynamically
 
 F = sympy.Matrix([x[0]**3- 4 *x[0], x[1]**2- 4 *x[1]])  # Example function
@@ -130,5 +131,5 @@ print( f'The root is {root}' )
 ```
 ---
 ### References
-* [Lejeune Lab Graduate Course Materials: Bisection-Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method/tree/main)
-* chatGPT: was used for completing the documentation. The introduction and [What is Newton's Method?](#nm) sections are written by the GenAI.
+* [Lejeune Lab Graduate Course Materials: Bisection-Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method/tree/main) 
+* chatGPT: was used for completing the documentation. The introduction and [What is Newton's Method?](#nm) sections are written by the GenAI. Also, was used to learn how to use sympy. 
