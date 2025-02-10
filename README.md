@@ -3,14 +3,19 @@
 [![Run Tests](https://github.com/sarajahedazad/Newton-Solver/actions/workflows/test.yml/badge.svg)](https://github.com/sarajahedazad/Newton-Solver/actions/workflows/test.yml)
 ---
 ### Table of contents
-
+* [What is Newton's Method?](#nm)
+* [Requirements](#requirements)
+* [Codes](#codes)
+* [Conda environment, install, and testing](#install)
+* [An alternative way to test the implemented Newton's method without installing the package ](#alter)
+* [References](#references)
 
 ---
-# Newton Solver
+# Newton Solver 
 
 This repository provides an implementation of [Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method) (also known as the Newton–Raphson method) for finding roots (zeros) of functions or systems of equations. Newton's method is an iterative algorithm commonly used in numerical analysis and scientific computing.
 
-## What is Newton's Method?
+## What is Newton's Method? <a name="nm"></a>
 
 Newton's method is designed to find solutions to the equation $F(x) = 0$. It uses the first-order Taylor expansion to generate iterative approximations of the root. For a single variable, each iteration is:
 
@@ -102,14 +107,15 @@ cd tutorials/
 ```bash
 jupyter notebook tutorial_newton_solver.ipynb
 ```
-### An alternative way to test the implemented Newton's method without installing the package
+### An alternative way to test the implemented Newton's method without installing the package <a name="alter"></a>
 - Step 1: Download the `newton_solver.py` file from the folder `src/newtonsolver`([here](https://github.com/sarajahedazad/Newton-Solver/tree/main/src/newtonsolver). Place it in the same folder as your working directory.
 - Step 2: Create a python file in that folder and write your example in that file. You can import the `newton_solver` with the following line:
 `import newton_solver as ns`
 - Step 3: Run your code an enjoy!
 Here is an example that demonstrates how you can test `newton_solver.py` file (it should be in the same folder as the python file that you intend to run):
 
-`import numpy as np
+```
+import numpy as np
 import sympy
 import newton_solver as ns
 
@@ -120,7 +126,9 @@ J = F.jacobian(x)
 x0 = np.array([1.5, 2.2])
 root = ns.solver( F, J, x, x0, verbose = True)
 
-print( f'The root is {root}' )`
+print( f'The root is {root}' )
+```
 ---
-### Inputs and outputs of solve
----
+### References
+* [Lejeune Lab Graduate Course Materials: Bisection-Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method/tree/main)
+* chatGPT: was used for completing the documentation. The introduction and [What is Newton's Method?](#nm) sections are written by the GenAI.
