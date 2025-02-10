@@ -60,7 +60,7 @@ example: `x = np.array([ 1.5, 2.2 ])`
 ---
 
 ### Conda environment, install, and testing <a name="install"></a>
-_This section is entirely copy and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)_
+_This section is entirely copied and pasted from [Lejeune's Lab Graduate Course Materials: Bisection Method](https://github.com/Lejeune-Lab-Graduate-Course-Materials/bisection-method.git)_
 
 To install this package, please begin by setting up a conda environment (mamba also works):
 ```bash
@@ -108,8 +108,8 @@ jupyter notebook tutorial_newton_solver.ipynb
 `import newton_solver as ns`
 - Step 3: Run your code an enjoy!
 Here is an example that demonstrates how you can test `newton_solver.py` file (it should be in the same folder as the python file that you intend to run):
-`
-import numpy as np
+
+`import numpy as np
 import sympy
 import newton_solver as ns
 
@@ -120,8 +120,7 @@ J = F.jacobian(x)
 x0 = np.array([1.5, 2.2])
 root = ns.solver( F, J, x, x0, verbose = True)
 
-print( f'The root is {root}' )
-`
+print( f'The root is {root}' )`
 ---
 ### Inputs and outputs of solve
 ---
